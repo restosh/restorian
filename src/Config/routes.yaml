@@ -1,0 +1,17 @@
+routing:
+  - index:
+      url: '/'
+      class: Controller\Guest\App\Index\Query\IndexController
+      action: indexAction
+      method: GET
+  - projects/list:
+      url: '/projects'
+      class: Controller\User\App\Project\Query\IndexController
+      action: indexAction
+      method: GET
+
+  - projects/create:
+      url: '/projects/create'
+      class: Controller\User\App\Project\Query\IndexController
+      action: createAction
+      method: GET

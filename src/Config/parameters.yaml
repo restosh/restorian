@@ -1,0 +1,13 @@
+service:
+  name: 'Restorian'
+  description: 'POWERfull test RESTfull'
+  autor: 'Resto Software House'
+  autor_url: 'http://resto.sh'
+  change:
+    - 'dzik'
+    - 'pies'
+security:
+  yes:
+    deep:
+      deeep:
+        deeeeep: yes!

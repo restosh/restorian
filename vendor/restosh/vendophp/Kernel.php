@@ -2,24 +2,42 @@
 
 namespace VendoPHP;
 
+use Composer\Autoload\ClassLoader;
 use Symfony\Component\Dotenv\Dotenv;
+use VendoPHP\Service\CommandBus;
 
+/**
+ * Class Kernel
+ * @package VendoPHP
+ */
 class Kernel
 {
 
     const CACHE_SERVICE_FILES = 'vendophp.services';
 
+    /**
+     * Kernel constructor.
+     */
     public function __construct()
     {
         $this->loadEnv();
-        $this->loadService();
+
+        $this->loadDefaultServices();
+
+        $this->loadConfigs();
+
+        $this->loadCustomServices();
+
+        $this->loadEvents();
+
+        $this->loadHandlers();
+
     }
 
-    public function handle()
+    public function handle(string $className, string $methodName)
     {
-        return Dispatcher::handle();
+        return Autowire::resolve($className, $methodName);
     }
-
 
     private function loadEnv(): void
     {
@@ -27,7 +45,15 @@ class Kernel
         $dotenv->load(APP_DIR . '/.env');
     }
 
-    private function loadService(): void
+    private function loadCustomServices(): void
+    {
+
+        DI::set('commandBus', function () {
+            return (new CommandBus());
+        });
+    }
+
+    private function loadDefaultServices(): void
     {
         $files = Cache::get(self::CACHE_SERVICE_FILES);
 
@@ -42,6 +68,22 @@ class Kernel
         foreach ($files as $file) {
             require_once($file[0]);
         }
+    }
+
+    private function loadEvents(): void
+    {
+        Event::load();
+    }
+
+    private function loadHandlers(): void
+    {
+        CommandBus::load();
+    }
+
+
+    private function loadConfigs(): void
+    {
+        Config::load();
     }
 
 }

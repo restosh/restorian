@@ -35,6 +35,14 @@ class Env
     }
 
     /**
+     * @return bool
+     */
+    public static function isCache(): bool
+    {
+        return filter_var(self::get('IS_CACHE'), FILTER_VALIDATE_BOOLEAN);
+    }
+
+    /**
      * @param string $name
      * @return string|null
      */

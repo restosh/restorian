@@ -1,0 +1,1 @@
+{"beforeEvent":{"Controller\\BaseController":[{"Event\\Guard":{"__construct":"__construct"}}]},"exceptionEvent":{"Controller\\BaseController":[{"Event\\NotFound":{"__construct":"__construct"}}]}}

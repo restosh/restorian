@@ -1,17 +1,24 @@
 <?php
 
-namespace Restorian\Handler\Project\Command;
+namespace Handler\Project\Command;
 
 
-use Restorian\Message\Project\Command\CreateProjectMessage;
+use Factory\Project\CreateFactory;
+use Message\Project\Command\CreateProjectMessage;
 
-class CreateProjectHandler{
+class CreateProjectHandler
+{
+
+    private $createFactory;
+
+    public function __construct(CreateFactory $createFactory)
+    {
+        $this->createFactory = $createFactory;
+    }
 
 
-
-    public function handle(CreateProjectMessage $createProjectMessage){
-
-        var_dump($createProjectMessage); die('dziki');
-        die($createProjectMessage->ok);
+    public function invoke(CreateProjectMessage $createProjectMessage)
+    {
+        $this->createFactory->handle();
     }
 }

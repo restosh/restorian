@@ -5,15 +5,25 @@ use VendoPHP\Env;
 
 DI::set('twig', function () {
 
-    $templatesDir = Env::getPath('DIR_VIEW');
-    $cacheDir = Env::getPath('DIR_CACHE');
-    $isDevMode = Env::isDebug();
+    $loader = new \Twig\Loader\FilesystemLoader(Env::getPath('DIR_VIEW'));
 
-    $loader = new \Twig\Loader\FilesystemLoader($templatesDir);
     $twig = new \Twig\Environment($loader, [
-        'cache' => $cacheDir . '/templates',
-        'debug' => $isDevMode
+        'cache' => Env::getPath('DIR_CACHE') . '/templates',
+        'debug' => Env::isDebug()
     ]);
+
+    $filter = new \Twig\TwigFilter('param', function ($string) {
+        return VendoPHP\Config::get($string);
+    });
+
+    $twig->addFilter($filter);
+
+    $filter = new \Twig\TwigFilter('url', function ($string) {
+        return VendoPHP\Service\Routing::url($string);
+    });
+
+    $twig->addFilter($filter);
+
 
     return $twig;
 });

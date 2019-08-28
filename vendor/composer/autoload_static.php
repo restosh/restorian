@@ -31,10 +31,6 @@ class ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49
             'Symfony\\Component\\Dotenv\\' => 25,
             'Symfony\\Component\\Console\\' => 26,
         ),
-        'R' => 
-        array (
-            'Restorian\\' => 10,
-        ),
         'P' => 
         array (
             'Psr\\Container\\' => 14,
@@ -90,10 +86,6 @@ class ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
-        'Restorian\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -139,6 +131,10 @@ class ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49
         ),
     );
 
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/src',
+    );
+
     public static $prefixesPsr0 = array (
         'T' => 
         array (
@@ -158,6 +154,7 @@ class ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit6e3a514f8ed160b01eefad132c6e8f49::$classMap;
 

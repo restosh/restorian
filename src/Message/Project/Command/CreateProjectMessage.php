@@ -1,6 +1,6 @@
 <?php
 
-namespace Restorian\Message\Project\Command;
+namespace Message\Project\Command;
 
 class CreateProjectMessage
 {

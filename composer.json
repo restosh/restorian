@@ -17,13 +17,15 @@
   "require": {
     "restosh/vendophp": "master@dev",
     "doctrine/orm": "^2.6.2",
-    "symfony/yaml": "2.*",
+    "symfony/yaml": "^4.3",
     "symfony/dotenv": "^4.3",
-    "twig/twig": "^2.0"
+    "twig/twig": "^2.0",
+    "doctrine/annotations": "^1.7",
+    "doctrine/common": "^2.10"
   },
   "autoload": {
     "psr-4": {
-      "Restorian\\": "src/"
+      "": "src/"
     }
   }
 }

@@ -81,7 +81,7 @@ class Cache
      */
     public static function get(string $key)
     {
-        $isDebug = Env::isDebug();
+        $isDebug = Env::isCache();
 
         if (true === $isDebug) {
             return null;

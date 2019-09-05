@@ -1,1 +1,1 @@
-{"Message\\Project\\Command\\CreateProjectMessage":{"Handler\\Project\\Command\\CreateProjectHandler":true}}
+{"Message\\Guest\\Query\\LoginMessage":{"Handler\\Guest\\Query\\LoginHandler":true},"Message\\Project\\Command\\CreateProjectMessage":{"Handler\\Project\\Command\\CreateProjectHandler":true}}
